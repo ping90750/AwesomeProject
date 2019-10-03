@@ -2,16 +2,14 @@ import {
   createSwitchNavigator,
   createBottomTabNavigator
 } from "react-navigation";
-import {createStackNavigator} from 'react-navigation-stack';
+import { createStackNavigator } from "react-navigation-stack";
 import HomeScreen from "../Home/HomeScreen";
 import HistoryScreen from "../History/HistoryScreen";
 import SettingsScreen from "../Setting/SettingsScreen";
 import OtherScreen from "../Other/OtherScreen";
 
-
 const MainNavigator = createStackNavigator({
-  Home: {screen: HomeScreen},
-
+  Home: { screen: HomeScreen }
 });
 
 const HistoryStack = createStackNavigator({
@@ -29,35 +27,34 @@ const OtherStack = createStackNavigator({
   Other: {
     screen: OtherScreen
   }
-
 });
 
 const AppTabNavigator = createBottomTabNavigator(
   {
-  tabBarHome: {
-    screen: HomeStack,
-    navigationOptions: {
-      tabBarVisible: false
+    tabBarHome: {
+      screen: HomeStack,
+      navigationOptions: {
+        tabBarVisible: false
+      }
+    },
+    tabBarOther: {
+      screen: OtherStack,
+      navigationOptions: {
+        tabBarVisible: false
+      }
+    },
+    tabBarHistory: {
+      screen: HistoryStack,
+      navigationOptions: {
+        tabBarVisible: false
+      }
+    },
+    tabBarSettings: {
+      screen: SettingsStack,
+      navigationOptions: {
+        tabBarVisible: false
+      }
     }
-  },
-  tabBarOther: {
-    screen: OtherStack,
-    navigationOptions: {
-      tabBarVisible: false
-    }
-  },
-  tabBarHistory: {
-    screen: HistoryStack,
-    navigationOptions: {
-      tabBarVisible: false
-    }
-  },
-  tabBarSettings: {
-    screen: SettingsStack,
-    navigationOptions: {
-      tabBarVisible: false
-    }
-  }
   },
   {
     backBehavior: "none",
@@ -65,13 +62,14 @@ const AppTabNavigator = createBottomTabNavigator(
     swipeEnabled: false,
     headerMode: "none"
   }
-
 );
 
-  const AppNavigator = createSwitchNavigator({
-
+const AppNavigator = createSwitchNavigator(
+  {
     App: AppTabNavigator,
     Home: HomeStack
-  }, {initialRouteName: "App"});
+  },
+  { initialRouteName: "App" }
+);
 
-  export default AppNavigator;
+export default AppNavigator;

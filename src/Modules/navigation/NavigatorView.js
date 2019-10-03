@@ -1,7 +1,7 @@
-import React, { PropTypes, Component } from "react";
+import React, {PropTypes, Component} from "react";
 
 import AppNavigator from "./Navigator";
-import { createAppContainer } from "react-navigation";
+import {createAppContainer} from "react-navigation";
 
 const NavigatorView = createAppContainer(AppNavigator);
 
